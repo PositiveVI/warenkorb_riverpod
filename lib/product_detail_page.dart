@@ -7,7 +7,7 @@ import 'product.dart';
 class ProductDetailPage extends StatelessWidget {
   final Product product;
 
-  ProductDetailPage({required this.product});
+  const ProductDetailPage({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,11 @@ class ProductDetailPage extends StatelessWidget {
         title: Text(product.title),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart_checkout, color: Colors.green),
+            icon: const Icon(Icons.shopping_cart_checkout, color: Colors.green),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CartPage()),
+                MaterialPageRoute(builder: (context) => const CartPage()),
               );
             },
           ),
@@ -33,14 +33,14 @@ class ProductDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(product.title, style: TextStyle(fontSize: 24)),
-            SizedBox(height: 8),
+            Text(product.title, style: const TextStyle(fontSize: 24)),
+            const SizedBox(height: 8),
             Text(product.description),
-            SizedBox(height: 8),
-            Text('\$${product.price}', style: TextStyle(fontSize: 24)),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
+            Text('\$${product.price}', style: const TextStyle(fontSize: 24)),
+            const SizedBox(height: 8),
             Text('Availability: ${product.availability}'),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: product.availability >
                       0 //sobald nix mehr da ist, wird der Button disabled
@@ -49,15 +49,17 @@ class ProductDetailPage extends StatelessWidget {
                           .addProduct(product);
                       if (product.availability == 0) {
                         //Wenn nichts mehr da ist, wird eine Snackbar angezeigt
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text('Leider nicht mehr verfügbar')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Leider nicht mehr verfügbar')));
                       }
                     }
                   : null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
               ),
-              child: Text('Hinzufügen', style: TextStyle(color: Colors.white)),
+              child: const Text('Hinzufügen',
+                  style: TextStyle(color: Colors.white)),
             ),
           ],
         ),

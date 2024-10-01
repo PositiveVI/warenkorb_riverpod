@@ -35,7 +35,7 @@ class CartPage extends StatelessWidget {
           ),
           Text(
             'Total: \$${cart.totalPrice}',
-            style: TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
