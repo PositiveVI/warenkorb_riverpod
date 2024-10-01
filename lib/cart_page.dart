@@ -8,7 +8,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
-
+//test comment
     return Scaffold(
       backgroundColor: Colors.white,
       appBar:
